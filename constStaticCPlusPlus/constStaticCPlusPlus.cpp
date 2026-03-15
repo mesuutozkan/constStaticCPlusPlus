@@ -2,60 +2,25 @@
 
 using namespace std;
 
-/*
-static keyword provides only 1 memory space for variable and remains same memory space with its value.
-Variable's value is same at variables memory at any time when accessing same variable.
-*/
-void func1()
-{
-	static int counter = 0;
-	counter++;
-
-	cout << "count: " << counter << endl;
-}
-
-void func2()
-{
-	static int counter = 0;
-	counter++;
-
-	cout << "count: " << counter << endl;
-}
-
 int main()
 {
-	func1();
-	func1();
-	func1();
-	/*
-	output:
-	1
-	2
-	3
-	*/
+	int divide, divided, output;
 
-	func1();
-	func1();
-	func1();
-	
-	func2();
+	cin >> divided;
+	cin >> divide;
 
-	func1();
+	// try - catch can be used for catching errors. like dividing a number to 0:
 
-	/*
-	output:
-	4
-	5
-	6
-	1
-	7
-	*/
-
-	//const variables are declared once for constant numbers. It can not change after declaration.
-	//declaration + initialization must be done at first for constants.
-
-	const int pi = 3.14;
-
+	try								 // insert error side.
+	{
+		if (divide == 0)
+			throw 99;				 // identify error code.		
+		output = divided / divide;
+	}
+	catch (int errorCode)			// generate error code based situational algorithm.	
+	{
+		cout << "Error code: " << errorCode << endl;
+	}
 
 	return 0;
 }
